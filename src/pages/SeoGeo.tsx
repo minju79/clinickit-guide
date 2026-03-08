@@ -269,7 +269,7 @@ export default function SeoGeo() {
       </section>
 
       {/* Open Graph / Twitter */}
-      <section className="guide-section">
+      <section id="og-twitter" className="guide-section scroll-mt-20">
         <SectionHeading tag="h2">Open Graph & Twitter 메타</SectionHeading>
         <div className="guide-card">
           <CodeBlock
