@@ -180,7 +180,7 @@ export default function ComplianceGuide() {
       </section>
 
       {/* 페이지별 검토 요소 */}
-      <section className="guide-section">
+      <section id="page-review" className="guide-section scroll-mt-20">
         <SectionHeading tag="h2">페이지별 검토 필요 요소</SectionHeading>
         <div className="overflow-x-auto">
           <table className="guide-table">
