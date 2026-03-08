@@ -1,4 +1,6 @@
+import { useLocation } from "react-router-dom";
 import { SectionHeading } from "@/components/SectionHeading";
+import { PageNavigation } from "@/components/PageNavigation";
 import { Check, Square } from "lucide-react";
 import { useState } from "react";
 
@@ -57,6 +59,7 @@ function ChecklistSection({ title, items }: ChecklistSectionProps) {
 }
 
 export default function Checklist() {
+  const { pathname } = useLocation();
   return (
     <div>
       <SectionHeading
@@ -207,6 +210,8 @@ export default function Checklist() {
           "백업 및 롤백 계획 수립",
         ]}
       />
+
+      <PageNavigation currentPath={pathname} />
     </div>
   );
 }

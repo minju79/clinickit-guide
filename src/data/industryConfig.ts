@@ -6,6 +6,14 @@ export interface IndustryConfig {
   name: string;
   nameShort: string;
   description: string;
+  /** Site-wide branding: sidebar title */
+  brandTitle: string;
+  /** Site-wide branding: header subtitle */
+  brandSubtitle: string;
+  /** Version label */
+  version: string;
+  /** Footer disclaimer */
+  footerText: string;
   targetAudience: string[];
   coreValues: string[];
   visualKeywords: string[];
@@ -20,6 +28,10 @@ export const medicalClinicConfig: IndustryConfig = {
   name: "병원/의원",
   nameShort: "의원",
   description: "내과, 가정의학과, 소아청소년과, 정형외과, 이비인후과, 재활의학과, 검진센터형, 지역 기반 의원형 등 일반적인 병원/의원",
+  brandTitle: "의료기관 가이드",
+  brandSubtitle: "웹사이트 제작 기준서",
+  version: "v2.1",
+  footerText: "병원/의원 웹사이트 제작 가이드 — 내부 기준서 · 이 가이드는 법률 자문을 대체하지 않습니다.",
   targetAudience: ["환자 본인", "보호자(부모, 자녀)", "건강검진 대상자", "만성질환 관리 환자", "초진 방문자"],
   coreValues: ["신뢰 형성", "명확한 정보 전달", "지역 기반 접근성", "모바일 우선", "과장 없는 전문성"],
   visualKeywords: ["Trustworthy", "Calm", "Precise", "Accessible", "Modern", "Reassuring", "Professional", "Information-driven", "Clean but warm"],

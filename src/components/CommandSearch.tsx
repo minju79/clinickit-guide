@@ -36,32 +36,43 @@ export function CommandSearch() {
   const guides = navigationItems.filter(i => i.group === "guide");
   const tools = navigationItems.filter(i => i.group === "tool");
 
+  const buildSearchValue = (item: typeof navigationItems[0]) =>
+    [item.title, item.label, item.description, ...item.keywords, ...item.searchIntent].join(" ");
+
   return (
     <>
       <button
         onClick={() => setOpen(true)}
-        className="hidden md:inline-flex items-center gap-2 text-xs text-muted-foreground border border-border rounded-lg px-3 py-1.5 hover:bg-secondary transition-colors"
+        className="inline-flex items-center gap-2 text-xs text-muted-foreground border border-border rounded-lg px-3 py-1.5 hover:bg-secondary transition-colors"
         aria-label="문서 검색 열기 (Ctrl+K)"
       >
-        <span>검색</span>
-        <kbd className="pointer-events-none ml-1 rounded border border-border/60 bg-secondary px-1.5 py-0.5 font-mono text-[10px]">
+        <span className="hidden sm:inline">검색</span>
+        <kbd className="pointer-events-none rounded border border-border/60 bg-secondary px-1.5 py-0.5 font-mono text-[10px]">
           ⌘K
         </kbd>
       </button>
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="페이지 또는 키워드 검색..." />
+        <CommandInput placeholder="페이지, 키워드, 또는 의도를 검색하세요..." />
         <CommandList>
-          <CommandEmpty>검색 결과가 없습니다.</CommandEmpty>
+          <CommandEmpty>
+            <div className="py-6 text-center">
+              <p className="text-sm text-muted-foreground">검색 결과가 없습니다.</p>
+              <p className="text-xs text-muted-foreground mt-1">다른 키워드로 검색하거나 가이드 홈에서 탐색하세요.</p>
+            </div>
+          </CommandEmpty>
           <CommandGroup heading="가이드 메뉴">
             {guides.map(item => (
               <CommandItem
                 key={item.path}
-                value={`${item.title} ${item.keywords.join(" ")}`}
+                value={buildSearchValue(item)}
                 onSelect={() => handleSelect(item.path)}
                 className="cursor-pointer"
               >
                 <item.icon className="mr-2 h-4 w-4 text-muted-foreground" />
-                <span>{item.title}</span>
+                <div className="flex flex-col">
+                  <span className="text-sm">{item.label}</span>
+                  <span className="text-xs text-muted-foreground">{item.description}</span>
+                </div>
               </CommandItem>
             ))}
           </CommandGroup>
@@ -69,12 +80,15 @@ export function CommandSearch() {
             {tools.map(item => (
               <CommandItem
                 key={item.path}
-                value={`${item.title} ${item.keywords.join(" ")}`}
+                value={buildSearchValue(item)}
                 onSelect={() => handleSelect(item.path)}
                 className="cursor-pointer"
               >
                 <item.icon className="mr-2 h-4 w-4 text-accent" />
-                <span>{item.title}</span>
+                <div className="flex flex-col">
+                  <span className="text-sm">{item.label}</span>
+                  <span className="text-xs text-muted-foreground">{item.description}</span>
+                </div>
               </CommandItem>
             ))}
           </CommandGroup>

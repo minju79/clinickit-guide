@@ -25,13 +25,9 @@ export function usePageMeta() {
     // Meta description
     setMeta("name", "description", meta.description);
 
-    // Robots
-    if (meta.noindex) {
-      setMeta("name", "robots", "noindex, nofollow");
-    } else {
-      const robotsEl = document.querySelector('meta[name="robots"]');
-      if (robotsEl) robotsEl.remove();
-    }
+    // Robots — explicit per-route or default
+    const robotsContent = meta.robots || (meta.noindex ? "noindex, nofollow" : "index, follow");
+    setMeta("name", "robots", robotsContent);
 
     // Canonical
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
@@ -40,6 +36,7 @@ export function usePageMeta() {
       canonical.setAttribute("rel", "canonical");
       document.head.appendChild(canonical);
     }
+    // For noindex pages, still set canonical but to itself
     canonical.setAttribute("href", `${BASE_URL}${pathname === "/" ? "" : pathname}`);
 
     const fullUrl = `${BASE_URL}${pathname === "/" ? "" : pathname}`;
@@ -63,13 +60,22 @@ export function usePageMeta() {
     // JSON-LD (page-specific)
     const existingLd = document.querySelector('script[data-page-jsonld]');
     if (existingLd) existingLd.remove();
-    if (meta.jsonLd) {
-      const script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.setAttribute("data-page-jsonld", "true");
-      script.textContent = JSON.stringify(meta.jsonLd);
-      document.head.appendChild(script);
-    }
+
+    // Build WebPage JSON-LD if no custom jsonLd provided
+    const jsonLdData = meta.jsonLd || {
+      "@context": "https://schema.org",
+      "@type": meta.schemaType || "WebPage",
+      name: meta.ogTitle || meta.title,
+      description: meta.description,
+      url: fullUrl,
+      isPartOf: { "@type": "WebSite", name: SITE_NAME, url: BASE_URL },
+    };
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.setAttribute("data-page-jsonld", "true");
+    script.textContent = JSON.stringify(jsonLdData);
+    document.head.appendChild(script);
 
     // BreadcrumbList JSON-LD
     const existingBc = document.querySelector('script[data-breadcrumb-jsonld]');
@@ -85,11 +91,11 @@ export function usePageMeta() {
           item: `${BASE_URL}${item.url === "/" ? "" : item.url}`,
         })),
       };
-      const script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.setAttribute("data-breadcrumb-jsonld", "true");
-      script.textContent = JSON.stringify(bcLd);
-      document.head.appendChild(script);
+      const bcScript = document.createElement("script");
+      bcScript.type = "application/ld+json";
+      bcScript.setAttribute("data-breadcrumb-jsonld", "true");
+      bcScript.textContent = JSON.stringify(bcLd);
+      document.head.appendChild(bcScript);
     }
   }, [pathname]);
 }

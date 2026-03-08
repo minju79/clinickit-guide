@@ -1,7 +1,10 @@
+import { useLocation } from "react-router-dom";
 import { SectionHeading } from "@/components/SectionHeading";
 import { CheckItem } from "@/components/CheckItem";
+import { PageNavigation } from "@/components/PageNavigation";
 
 export default function ContentGuide() {
+  const { pathname } = useLocation();
   return (
     <div>
       <SectionHeading
@@ -163,6 +166,8 @@ export default function ContentGuide() {
           </ul>
         </div>
       </section>
+
+      <PageNavigation currentPath={pathname} />
     </div>
   );
 }

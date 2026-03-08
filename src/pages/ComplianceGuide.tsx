@@ -1,4 +1,6 @@
+import { useLocation } from "react-router-dom";
 import { SectionHeading } from "@/components/SectionHeading";
+import { PageNavigation } from "@/components/PageNavigation";
 import { CheckItem } from "@/components/CheckItem";
 import {
   complianceAreas,
@@ -16,6 +18,7 @@ const riskBadge: Record<RiskLevel, { text: string; cls: string }> = {
 };
 
 export default function ComplianceGuide() {
+  const { pathname } = useLocation();
   return (
     <div>
       <SectionHeading
@@ -240,6 +243,8 @@ export default function ComplianceGuide() {
           </ul>
         </div>
       </section>
+
+      <PageNavigation currentPath={pathname} />
     </div>
   );
 }

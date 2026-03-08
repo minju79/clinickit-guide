@@ -1,6 +1,8 @@
 import { SectionHeading } from "@/components/SectionHeading";
 import { CheckItem } from "@/components/CheckItem";
-import { jsonLdTemplates, sitemapStructure, routeMeta } from "@/data/seoConfig";
+import { PageNavigation } from "@/components/PageNavigation";
+import { useLocation } from "react-router-dom";
+import { jsonLdTemplates, sitemapStructure } from "@/data/seoConfig";
 
 function CodeBlock({ title, code, lang = "json" }: { title: string; code: string; lang?: string }) {
   return (
@@ -14,6 +16,7 @@ function CodeBlock({ title, code, lang = "json" }: { title: string; code: string
 }
 
 export default function SeoGeo() {
+  const { pathname } = useLocation();
   return (
     <div>
       <SectionHeading
@@ -355,6 +358,8 @@ Sitemap: https://www.example-clinic.com/sitemap.xml`}
           </ul>
         </div>
       </section>
+
+      <PageNavigation currentPath={pathname} />
     </div>
   );
 }

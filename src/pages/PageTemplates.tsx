@@ -1,4 +1,6 @@
+import { useLocation } from "react-router-dom";
 import { SectionHeading } from "@/components/SectionHeading";
+import { PageNavigation } from "@/components/PageNavigation";
 import { pageTemplates, type TemplateBlock, type BlockType } from "@/data/templateBlueprints";
 
 const blockTypeLabel: Record<BlockType, { text: string; class: string }> = {
@@ -14,6 +16,7 @@ const complianceLabel: Record<string, { text: string; class: string }> = {
 };
 
 export default function PageTemplates() {
+  const { pathname } = useLocation();
   return (
     <div>
       <SectionHeading
@@ -105,6 +108,8 @@ export default function PageTemplates() {
           </div>
         </section>
       ))}
+
+      <PageNavigation currentPath={pathname} />
     </div>
   );
 }
