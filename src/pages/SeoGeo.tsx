@@ -104,7 +104,7 @@ export default function SeoGeo() {
       </section>
 
       {/* URL 구조 */}
-      <section className="guide-section">
+      <section id="url-structure" className="guide-section scroll-mt-20">
         <SectionHeading tag="h2">URL 구조 예시</SectionHeading>
         <div className="guide-card">
           <div className="space-y-1 text-sm font-mono">
