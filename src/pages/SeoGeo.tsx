@@ -2,6 +2,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { CheckItem } from "@/components/CheckItem";
 import { PageNavigation } from "@/components/PageNavigation";
 import { useLocation } from "react-router-dom";
+import { jsonLdTemplates, sitemapStructure } from "@/data/seoConfig";
 
 function CodeBlock({ title, code, lang = "json" }: { title: string; code: string; lang?: string }) {
   return (
