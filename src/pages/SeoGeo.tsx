@@ -332,7 +332,7 @@ Sitemap: https://www.example-clinic.com/sitemap.xml`}
       </section>
 
       {/* AI 검색 최적화 */}
-      <section className="guide-section">
+      <section id="ai-search" className="guide-section scroll-mt-20">
         <SectionHeading tag="h2">AI 검색/요약에 유리한 콘텐츠 구조</SectionHeading>
         <div className="guide-notice-success">
           <ul className="space-y-2 text-sm">
