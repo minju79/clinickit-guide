@@ -17,6 +17,7 @@ const riskBadge: Record<RiskLevel, { text: string; cls: string }> = {
 };
 
 export default function ComplianceGuide() {
+  const { pathname } = useLocation();
   return (
     <div>
       <SectionHeading
