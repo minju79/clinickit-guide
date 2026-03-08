@@ -211,7 +211,7 @@ export default function ComplianceGuide() {
       </section>
 
       {/* 출시 전 검수 플로우 */}
-      <section className="guide-section">
+      <section id="prelaunch" className="guide-section scroll-mt-20">
         <SectionHeading tag="h2">출시 전 법률/광고 검수 플로우</SectionHeading>
         <div className="guide-card">
           <ol className="space-y-3 text-sm">
