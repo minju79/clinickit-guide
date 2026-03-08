@@ -146,6 +146,7 @@ export default function IndustryOverview() {
           </div>
         </div>
       </section>
+      <PageNavigation currentPath={pathname} />
     </div>
   );
 }
