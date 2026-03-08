@@ -1,5 +1,6 @@
 import { SectionHeading } from "@/components/SectionHeading";
 import { PageNavigation } from "@/components/PageNavigation";
+import { PageToc } from "@/components/PageToc";
 import { uiComponents, type UiComponentDef } from "@/data/uiComponentDefinitions";
 import { Phone, Clock, MapPin, Calendar, ChevronRight, ChevronDown, Star, Menu, ArrowRight, Search, AlertCircle, CheckCircle2, XCircle, Image, FileText, Navigation, Hash } from "lucide-react";
 import { useState } from "react";
