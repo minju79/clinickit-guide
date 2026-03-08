@@ -55,7 +55,7 @@ export default function SeoGeo() {
       ]} />
 
       {/* 메타 타이틀/디스크립션 */}
-      <section className="guide-section">
+      <section id="meta-template" className="guide-section scroll-mt-20">
         <SectionHeading tag="h2" sub="각 페이지별 권장 메타 데이터 구조">
           메타 타이틀 & 디스크립션 템플릿
         </SectionHeading>
