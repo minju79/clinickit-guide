@@ -162,7 +162,7 @@ export default function SeoGeo() {
       </section>
 
       {/* 지역 기반 페이지 구조 */}
-      <section className="guide-section">
+      <section id="local-landing" className="guide-section scroll-mt-20">
         <SectionHeading tag="h2" sub="지역+키워드 조합으로 검색 유입을 최적화합니다">
           지역 기반 랜딩 페이지 설계
         </SectionHeading>
