@@ -1,5 +1,6 @@
+import { useLocation } from "react-router-dom";
 import { SectionHeading } from "@/components/SectionHeading";
-import { CheckItem } from "@/components/CheckItem";
+import { PageNavigation } from "@/components/PageNavigation";
 import {
   complianceAreas,
   pageComplianceMap,
