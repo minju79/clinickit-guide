@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { GuideSidebar } from "@/components/GuideSidebar";
 import { CommandSearch } from "@/components/CommandSearch";
+import { currentConfig } from "@/data/industryConfig";
 
 interface GuideLayoutProps {
   children: ReactNode;
@@ -23,7 +24,7 @@ export function GuideLayout({ children }: GuideLayoutProps) {
           <header role="banner" className="h-12 flex items-center border-b border-border bg-card sticky top-0 z-30">
             <SidebarTrigger className="ml-3" />
             <span className="ml-3 text-sm font-medium text-muted-foreground hidden sm:inline">
-              병원/의원 웹사이트 제작 가이드
+              {currentConfig.name} 웹사이트 제작 가이드
             </span>
             <div className="ml-auto mr-3">
               <CommandSearch />
@@ -35,7 +36,7 @@ export function GuideLayout({ children }: GuideLayoutProps) {
             </div>
           </main>
           <footer role="contentinfo" className="border-t border-border bg-card py-4 px-6 text-xs text-muted-foreground text-center">
-            병원/의원 웹사이트 제작 가이드 — 내부 기준서 v2.0 · 이 가이드는 법률 자문을 대체하지 않습니다.
+            {currentConfig.footerText}
           </footer>
         </div>
       </div>

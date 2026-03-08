@@ -1,6 +1,7 @@
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
 import { guideItems, toolItems } from "@/data/navigationConfig";
+import { currentConfig } from "@/data/industryConfig";
 import {
   Sidebar,
   SidebarContent,
@@ -20,28 +21,27 @@ export function GuideSidebar() {
   const location = useLocation();
 
   const renderItems = (items: typeof guideItems) =>
-    items.map((item) => (
-      <SidebarMenuItem key={item.path}>
-        <SidebarMenuButton
-          asChild
-          isActive={
-            item.path === "/"
-              ? location.pathname === "/"
-              : location.pathname.startsWith(item.path)
-          }
-        >
-          <NavLink
-            to={item.path}
-            end={item.path === "/"}
-            className="hover:bg-sidebar-accent/60"
-            activeClassName="bg-sidebar-accent text-sidebar-accent-foreground font-medium"
-          >
-            <item.icon className="mr-2 h-4 w-4" />
-            {!collapsed && <span>{item.title}</span>}
-          </NavLink>
-        </SidebarMenuButton>
-      </SidebarMenuItem>
-    ));
+    items.map((item) => {
+      const isActive = item.path === "/"
+        ? location.pathname === "/"
+        : location.pathname.startsWith(item.path);
+      return (
+        <SidebarMenuItem key={item.path}>
+          <SidebarMenuButton asChild isActive={isActive}>
+            <NavLink
+              to={item.path}
+              end={item.path === "/"}
+              className="hover:bg-sidebar-accent/60"
+              activeClassName="bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+              aria-current={isActive ? "page" : undefined}
+            >
+              <item.icon className="mr-2 h-4 w-4" />
+              {!collapsed && <span>{item.label}</span>}
+            </NavLink>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+      );
+    });
 
   return (
     <Sidebar collapsible="icon">
@@ -54,8 +54,8 @@ export function GuideSidebar() {
                   <Building2 className="h-4 w-4 text-sidebar-primary-foreground" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-sidebar-foreground">의료기관 가이드</p>
-                  <p className="text-[11px] text-sidebar-foreground/60">웹사이트 제작 기준서 v2.0</p>
+                  <p className="text-sm font-semibold text-sidebar-foreground">{currentConfig.brandTitle}</p>
+                  <p className="text-[11px] text-sidebar-foreground/60">{currentConfig.brandSubtitle} {currentConfig.version}</p>
                 </div>
               </div>
             </div>
