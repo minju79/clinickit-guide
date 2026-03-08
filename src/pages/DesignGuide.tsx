@@ -1,6 +1,8 @@
 import { useLocation } from "react-router-dom";
 import { SectionHeading } from "@/components/SectionHeading";
 import { PageNavigation } from "@/components/PageNavigation";
+
+const colorTokens = [
   { name: "Primary (Navy)", token: "--primary", hsl: "215 50% 23%", use: "주요 헤더, 버튼, 강조" },
   { name: "Accent (Teal)", token: "--accent", hsl: "185 45% 38%", use: "포인트 컬러, 링크, 아이콘" },
   { name: "Background", token: "--background", hsl: "210 20% 99%", use: "페이지 배경" },
