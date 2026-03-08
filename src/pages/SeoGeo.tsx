@@ -1,6 +1,7 @@
 import { SectionHeading } from "@/components/SectionHeading";
 import { CheckItem } from "@/components/CheckItem";
 import { PageNavigation } from "@/components/PageNavigation";
+import { PageToc } from "@/components/PageToc";
 import { useLocation } from "react-router-dom";
 import { jsonLdTemplates, sitemapStructure } from "@/data/seoConfig";
 
