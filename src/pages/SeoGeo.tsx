@@ -135,7 +135,7 @@ export default function SeoGeo() {
       </section>
 
       {/* H1/H2/H3 규칙 */}
-      <section className="guide-section">
+      <section id="heading-hierarchy" className="guide-section scroll-mt-20">
         <SectionHeading tag="h2">Heading Hierarchy 규칙</SectionHeading>
         <div className="guide-card">
           <ul className="space-y-1">
