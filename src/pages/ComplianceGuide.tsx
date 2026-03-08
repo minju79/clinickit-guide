@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { SectionHeading } from "@/components/SectionHeading";
 import { PageNavigation } from "@/components/PageNavigation";
+import { PageToc } from "@/components/PageToc";
 import { CheckItem } from "@/components/CheckItem";
 import {
   complianceAreas,
@@ -16,6 +17,16 @@ const riskBadge: Record<RiskLevel, { text: string; cls: string }> = {
   high: { text: "높음", cls: "guide-badge-review" },
   critical: { text: "매우 높음", cls: "guide-badge-emergency" },
 };
+
+const tocItems = [
+  { id: "label-system", label: "검토 필요 라벨 시스템" },
+  { id: "detail-table", label: "영역별 상세 검토표" },
+  { id: "ad-vs-info", label: "광고성 vs 정보성 구분" },
+  { id: "page-review", label: "페이지별 검토 필요 요소" },
+  { id: "prelaunch", label: "출시 전 법률/광고 검수 플로우" },
+  { id: "recheck", label: "운영 중 재검토 포인트" },
+  { id: "ad-landing", label: "외부 광고 랜딩 점검" },
+];
 
 export default function ComplianceGuide() {
   const { pathname } = useLocation();
