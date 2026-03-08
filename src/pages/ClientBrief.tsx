@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { PageNavigation } from "@/components/PageNavigation";
+import { StatusCard } from "@/components/StatusCard";
 import { briefFields, briefGroups } from "@/data/clientBriefFields";
 import {
   BriefData, StoredBrief, BRIEF_STORAGE_KEY, BRIEF_SCHEMA_VERSION,
