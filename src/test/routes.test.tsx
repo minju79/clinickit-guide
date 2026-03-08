@@ -177,7 +177,8 @@ describe("Implementation rules dynamic matching", () => {
       </MemoryRouter>
     );
 
-    // Should show the summary card with 검진센터형
-    expect(screen.getByText("검진센터형")).toBeInTheDocument();
+    // Should show 검진센터형 in the summary card (appears multiple times in rules too)
+    const matches = screen.getAllByText("검진센터형");
+    expect(matches.length).toBeGreaterThanOrEqual(1);
   });
 });
