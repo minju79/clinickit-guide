@@ -206,7 +206,7 @@ export default function SeoGeo() {
       </section>
 
       {/* NAP 일관성 */}
-      <section className="guide-section">
+      <section id="nap" className="guide-section scroll-mt-20">
         <SectionHeading tag="h2">NAP (Name / Address / Phone) 일관성</SectionHeading>
         <div className="guide-notice-info">
           <ul className="space-y-2 text-sm">
