@@ -210,6 +210,8 @@ export default function Checklist() {
           "백업 및 롤백 계획 수립",
         ]}
       />
+
+      <PageNavigation currentPath={pathname} />
     </div>
   );
 }
