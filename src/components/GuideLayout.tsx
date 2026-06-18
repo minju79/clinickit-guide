@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { useLocation } from "react-router-dom";
 import { GuideSidebar } from "@/components/GuideSidebar";
 import { CommandSearch } from "@/components/CommandSearch";
 import { currentConfig } from "@/data/industryConfig";
@@ -9,6 +10,28 @@ interface GuideLayoutProps {
 }
 
 export function GuideLayout({ children }: GuideLayoutProps) {
+  const { pathname } = useLocation();
+  const isShowcase = pathname.startsWith("/showcase");
+
+  if (isShowcase) {
+    return (
+      <div className="min-h-screen flex flex-col bg-background">
+        <div className="bg-[#1a2e40] text-[#f1f5f9] px-4 py-2 text-center text-xs flex justify-between items-center z-50 relative border-b border-[#2d465e]/20">
+          <span className="flex items-center gap-1.5">
+            <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            제작 가이드 적용 사례: <strong>새우리한방병원 데모 (2026 Premium)</strong>
+          </span>
+          <a href="/" className="underline hover:text-white font-semibold transition-colors">
+            가이드 시스템으로 돌아가기 &rarr;
+          </a>
+        </div>
+        <main id="main-content" role="main" className="flex-1">
+          {children}
+        </main>
+      </div>
+    );
+  }
+
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full">

@@ -18,7 +18,9 @@ import Checklist from "./pages/Checklist";
 import ClientBrief from "./pages/ClientBrief";
 import SiteBlueprint from "./pages/SiteBlueprint";
 import ImplementationRules from "./pages/ImplementationRules";
+import SaewooriHospital from "./pages/SaewooriHospital";
 import NotFound from "./pages/NotFound";
+
 
 const queryClient = new QueryClient();
 
@@ -40,6 +42,7 @@ function AppRoutes() {
         <Route path="/client-brief" element={<ClientBrief />} />
         <Route path="/site-blueprint" element={<SiteBlueprint />} />
         <Route path="/implementation-rules" element={<ImplementationRules />} />
+        <Route path="/showcase/saewoori" element={<SaewooriHospital />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </GuideLayout>

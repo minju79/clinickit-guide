@@ -71,7 +71,7 @@ export default function ClientBrief() {
         }
       }
     } catch { /* ignore */ }
-  }, []);
+  }, [toast]);
 
   // Auto-save (debounced 2s)
   useEffect(() => {

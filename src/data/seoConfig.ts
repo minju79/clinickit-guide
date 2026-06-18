@@ -150,6 +150,17 @@ export const routeMeta: Record<string, RouteMeta> = {
     robots: "noindex, nofollow",
     breadcrumb: guideBreadcrumb("구현 규칙", "/implementation-rules"),
   },
+  "/showcase/saewoori": {
+    title: "새우리한방병원 데모 사이트 | 실무 적용 사례",
+    description: "가이드라인을 기반으로 제작된 광주 새우리한방병원 웹사이트 데모입니다. 업종 특화 디자인과 법률 규정 준수 사례를 확인할 수 있습니다.",
+    keywords: ["새우리한방병원", "한방병원 홈페이지", "제작 사례"],
+    schemaType: "MedicalBusiness",
+    robots: "index, follow",
+    breadcrumb: [
+      { name: "홈", url: "/" },
+      { name: "새우리한방병원 데모", url: "/showcase/saewoori" },
+    ],
+  },
 };
 
 /** 404/기타 페이지용 fallback — routeMeta와 동일한 구조 */

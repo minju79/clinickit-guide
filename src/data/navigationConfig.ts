@@ -12,6 +12,7 @@ import {
   ClipboardList,
   Map,
   Settings,
+  Heart,
   type LucideIcon,
 } from "lucide-react";
 
@@ -108,6 +109,12 @@ export const navigationItems: NavItem[] = [
     label: "구현 규칙", description: "조건별 템플릿 선택, CTA 분기, 축소 구조",
     keywords: ["구현", "규칙", "분기", "엔진", "rules", "조건"],
     searchIntent: ["어떤 레이아웃 쓸지", "CTA 우선순위", "규칙 확인"],
+  },
+  {
+    title: "Saewoori Showcase", path: "/showcase/saewoori", icon: Heart, group: "tool",
+    label: "새우리한방병원 데모", description: "가이드를 바탕으로 제작된 새우리한방병원 2026 데모 사이트",
+    keywords: ["새우리", "한방병원", "쇼케이스", "데모", "saewoori", "showcase", "2026"],
+    searchIntent: ["새우리한방병원 사이트", "적용 사례 보기", "데모 홈페이지"],
   },
 ];
 
